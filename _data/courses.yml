@@ -1,0 +1,24 @@
+- title: NEET
+  icon: MD
+  description: Concept-led preparation for Physics, Chemistry, Botany, and Zoology with NCERT focus and test analysis.
+  url: /neet/
+- title: JEE Main
+  icon: JM
+  description: Strong problem-solving training for Mathematics, Physics, and Chemistry with chapter-wise practice.
+  url: /jee-main-advanced/
+- title: JEE Advanced
+  icon: JA
+  description: Advanced-level reasoning, multi-concept problems, and strategy sessions for IIT aspirants.
+  url: /jee-main-advanced/
+- title: CET
+  icon: CT
+  description: Targeted preparation for state-level entrance exams with speed-building tests and revision plans.
+  url: /cet/
+- title: Boards
+  icon: BD
+  description: Class-wise board exam support focused on syllabus completion, writing practice, and scoring strategy.
+  url: /boards/
+- title: Foundation
+  icon: FN
+  description: Early preparation for Classes 8 to 10 to strengthen science, mathematics, and analytical thinking.
+  url: /courses/#foundation

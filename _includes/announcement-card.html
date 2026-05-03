@@ -1,0 +1,6 @@
+<article class="announcement-card card-lift">
+  <time datetime="{{ include.announcement.iso_date }}">{{ include.announcement.date }}</time>
+  <h3>{{ include.announcement.title }}</h3>
+  <p>{{ include.announcement.description }}</p>
+  <a href="{{ '/announcements/' | relative_url }}#{{ include.announcement.slug }}">Read More</a>
+</article>

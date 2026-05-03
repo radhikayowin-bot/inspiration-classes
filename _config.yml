@@ -1,0 +1,31 @@
+title: Inspiritation Classes, Bareilly UP
+email: hello@inspiritationclasses.example
+phone: +91 98765 43210
+address: Bareilly, Uttar Pradesh
+description: Professional coaching institute in Bareilly for NEET, JEE Main, JEE Advanced, CET, Boards, and Foundation preparation.
+baseurl: ""
+url: ""
+lang: en_IN
+timezone: Asia/Kolkata
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: https://placehold.co/1200x630/fff3e6/f97316?text=Inspiritation+Classes
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

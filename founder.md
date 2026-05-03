@@ -1,0 +1,9 @@
+---
+title: Founder
+permalink: /founder/
+description: Founder profile of Er. Farman Malik, founder of Inspiritation Classes, Bareilly UP.
+---
+
+<section class="page-hero"><div class="container"><span class="eyebrow">Founder Profile</span><h1>Er. Farman Malik</h1><p class="lead">Founder @inspirationclassesofficial | Academic Director @being_alive_foundation | Academic Head @vinayak.international.school | NEET | AMU-JMI | FOUNDATION</p></div></section>
+<section class="section-pad"><div class="container course-detail"><img class="profile-image" src="https://placehold.co/620x720/fff1df/f97316?text=Er.+Farman+Malik" alt="Er. Farman Malik profile placeholder"><div><h2>Bio</h2><p>Er. Farman Malik leads Inspiritation Classes with a clear academic mission: help students understand deeply, practice consistently, and prepare with confidence. His work focuses on building disciplined learning systems for competitive and school-level students in Bareilly.</p><h2>Vision</h2><p>His vision is to create a coaching environment where students are not left alone with pressure. They receive structured classes, honest feedback, and mentoring that helps them improve step by step.</p><h2>Academic Roles</h2><ul class="check-list"><li>Founder @inspirationclassesofficial</li><li>Academic Director @being_alive_foundation</li><li>Academic Head @vinayak.international.school</li><li>NEET | AMU-JMI | FOUNDATION</li></ul></div></div></section>
+<section class="section-pad section-soft"><div class="container info-card card-lift"><h2>Message from Founder</h2><p>Every student can improve when preparation is honest, regular, and guided. At Inspiritation Classes, we work to make learning structured and meaningful so students and parents can clearly see progress.</p><a class="btn btn--primary" href="{{ '/enrollment/' | relative_url }}">Enroll Under Expert Guidance</a></div></section>

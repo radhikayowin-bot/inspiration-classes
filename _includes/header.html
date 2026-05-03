@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Inspiritation Classes home">
+      <img src="https://placehold.co/64x64/f97316/ffffff?text=IC" alt="Inspiritation Classes logo">
+      <span><strong>Inspiritation Classes</strong><small>Bareilly, UP</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/courses/' | relative_url }}">Courses</a>
+      <a href="{{ '/announcements/' | relative_url }}">Announcements</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/gallery/' | relative_url }}">Gallery</a>
+      <a href="{{ '/founder/' | relative_url }}">Founder</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <div class="nav-actions">
+        <a class="btn btn--small btn--primary" href="{{ '/enrollment/' | relative_url }}">Enroll Now</a>
+        <a class="btn btn--small btn--outline" href="{{ '/registration/' | relative_url }}">Register</a>
+        <a class="btn btn--small btn--dark" href="{{ '/contact/' | relative_url }}">Contact Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
