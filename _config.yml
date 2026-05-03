@@ -21,7 +21,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: https://placehold.co/1200x630/fff3e6/f97316?text=Inspiritation+Classes
+      image: https://placehold.co/1200x630/F9FAFB/1F5B45?text=Inspiritation+Classes
 
 exclude:
   - README.md

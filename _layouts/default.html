@@ -25,12 +25,14 @@
               heading: ['Poppins', 'sans-serif']
             },
             colors: {
-              brand: {
-                orange: '#ff7a18',
-                dark: '#1a1a2e',
-                muted: '#777777',
-                soft: '#fff3e8'
-              }
+              primary: '#1F5B45',
+              secondary: '#3A6EA5',
+              accent: '#F2C94C',
+              accentLight: '#FFD76A',
+              soft: '#E6B7C8',
+              bgLight: '#F9FAFB',
+              textDark: '#1A1A1A',
+              textGray: '#6B7280'
             },
             boxShadow: {
               soft: '0 14px 34px rgba(26, 26, 46, 0.08)',
@@ -42,8 +44,8 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
-  <body class="bg-gray-50 font-sans text-[#333] antialiased">
-    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-dark focus:px-4 focus:py-3 focus:text-white" href="#main">Skip to content</a>
+  <body class="bg-bgLight font-sans text-textDark antialiased">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-3 focus:text-white" href="#main">Skip to content</a>
     {% include header.html %}
     <main id="main">
       {{ content }}
