@@ -4,7 +4,7 @@ permalink: /
 description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanced, CET, Boards, and Foundation coaching with expert mentorship.
 ---
 
-<section class="hero section-pad">
+<section class="hero section-pad reveal">
   <div class="container hero__grid">
     <div class="hero__content">
       <span class="eyebrow">Trusted coaching in Bareilly, UP</span>
@@ -17,13 +17,13 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
       </div>
     </div>
     <div class="hero__media card-lift">
-      <img src="https://placehold.co/720x540/fff1df/f97316?text=Focused+Classroom" alt="Students learning at Inspiritation Classes">
+      <img src="https://placehold.co/720x540/fff1df/f97316?text=Focused+Classroom" alt="Students learning at Inspiritation Classes" fetchpriority="high">
       <div class="hero__badge">Exam-ready learning plans</div>
     </div>
   </div>
 </section>
 
-<section class="section-pad section-soft">
+<section class="section-pad section-soft reveal">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Updates</span>
@@ -38,7 +38,7 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad">
+<section class="section-pad reveal">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Courses</span>
@@ -53,7 +53,7 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad stats-band">
+<section class="section-pad stats-band reveal">
   <div class="container">
     <div class="section-head section-head--light">
       <span class="eyebrow eyebrow--light">Quantitative Excellence</span>
@@ -70,7 +70,7 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad">
+<section class="section-pad reveal">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Why Choose Us</span>
@@ -88,9 +88,9 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad section-soft">
+<section class="section-pad section-soft reveal">
   <div class="container founder-highlight card-lift">
-    <img src="https://placehold.co/420x520/fff1df/f97316?text=Er.+Farman+Malik" alt="Er. Farman Malik founder portrait placeholder">
+    <img src="https://placehold.co/420x520/fff1df/f97316?text=Er.+Farman+Malik" alt="Er. Farman Malik founder portrait placeholder" loading="lazy">
     <div>
       <span class="eyebrow">Founder</span>
       <h2>Er. Farman Malik</h2>
@@ -101,7 +101,7 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad">
+<section class="section-pad reveal">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Gallery</span>
@@ -109,23 +109,23 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
     </div>
     <div class="gallery-grid gallery-grid--preview">
       {% for image in site.data.gallery limit:6 %}
-        <img src="{{ image.src }}" alt="{{ image.alt }}">
+        <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy">
       {% endfor %}
     </div>
     <div class="center"><a class="btn btn--outline" href="{{ '/gallery/' | relative_url }}">View Full Gallery</a></div>
   </div>
 </section>
 
-<section class="section-pad section-soft">
+<section class="section-pad section-soft reveal">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Latest Blogs</span>
       <h2>Preparation Guidance for Students</h2>
     </div>
-    <div class="grid grid--4">
+    <div class="grid grid--blog">
       {% for blog in site.data.blogs limit:4 %}
         <article class="blog-card card-lift">
-          <img src="{{ blog.image }}" alt="{{ blog.title }}">
+          <img src="{{ blog.image }}" alt="{{ blog.title }}" loading="lazy">
           <div class="blog-card__body">
             <span>{{ blog.date }}</span>
             <h3>{{ blog.title }}</h3>
@@ -138,7 +138,7 @@ description: Inspiritation Classes in Bareilly offers NEET, JEE Main, JEE Advanc
   </div>
 </section>
 
-<section class="section-pad cta-section">
+<section class="section-pad cta-section reveal">
   <div class="container cta-card">
     <div>
       <span class="eyebrow eyebrow--light">Admissions Open</span>
