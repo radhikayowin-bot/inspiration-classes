@@ -2,6 +2,8 @@
 
 Full Jekyll website for Inspiritation Classes, Bareilly UP, founded by Er. Farman Malik. The site is designed for Cloudflare Pages deployment via GitHub.
 
+The frontend uses Tailwind CSS CDN, Font Awesome CDN, Google Fonts, Liquid data loops, and static HTML forms ready for later integration.
+
 ## Run Locally
 
 ```bash
@@ -67,6 +69,7 @@ _includes/header.html
 _includes/footer.html
 _includes/course-card.html
 _includes/announcement-card.html
+_includes/home-tailwind.html
 _sass/_base.scss
 assets/css/style.scss
 assets/js/main.js

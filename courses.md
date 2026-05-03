@@ -4,36 +4,6 @@ permalink: /courses/
 description: Explore NEET, JEE, CET, Boards, and Foundation courses at Inspiritation Classes, Bareilly.
 ---
 
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow">Courses</span>
-    <h1>Choose the right preparation track.</h1>
-    <p class="lead">Our courses are planned for students who need concept clarity, regular practice, and exam-focused mentoring.</p>
-  </div>
-</section>
-
-<section class="section-pad">
-  <div class="container grid grid--3">
-    {% for course in site.data.courses %}
-      {% include course-card.html course=course %}
-    {% endfor %}
-  </div>
-</section>
-
-<section id="foundation" class="section-pad section-soft">
-  <div class="container content-grid">
-    <div class="info-card card-lift">
-      <h2>Foundation Program</h2>
-      <p>Foundation classes help students in middle and secondary school develop stronger Science and Mathematics basics before competitive exam pressure begins.</p>
-    </div>
-    <div class="info-card card-lift">
-      <h2>Included Support</h2>
-      <ul class="check-list">
-        <li>Chapter-wise assignments</li>
-        <li>Regular doubt sessions</li>
-        <li>Monthly tests and feedback</li>
-        <li>Parent performance updates</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<section class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><span class="text-sm font-extrabold uppercase tracking-widest text-brand-orange">Courses</span><h1 class="mt-4 max-w-4xl font-heading text-4xl font-extrabold text-brand-dark md:text-5xl">Choose the right preparation track.</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-brand-muted">Our courses are planned for students who need concept clarity, regular practice, and exam-focused mentoring.</p></div></section>
+<section class="py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">{% for course in site.data.courses %}{% include course-card.html course=course %}{% endfor %}</div></section>
+<section id="foundation" class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 lg:grid-cols-2"><div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-md"><h2 class="font-heading text-2xl font-bold text-brand-dark">Foundation Program</h2><p class="mt-4 leading-8 text-brand-muted">Foundation classes help students in middle and secondary school develop stronger Science and Mathematics basics before competitive exam pressure begins.</p></div><div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-md"><h2 class="font-heading text-2xl font-bold text-brand-dark">Included Support</h2><ul class="mt-5 grid gap-3 text-brand-muted"><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Chapter-wise assignments</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Regular doubt sessions</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Monthly tests and feedback</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Parent performance updates</li></ul></div></div></section>

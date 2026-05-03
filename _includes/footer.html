@@ -1,40 +1,48 @@
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <a class="brand brand--footer" href="{{ '/' | relative_url }}">
-        <img src="https://placehold.co/64x64/f97316/ffffff?text=IC" alt="Inspiritation Classes logo">
-        <span><strong>Inspiritation Classes</strong><small>Bareilly, UP</small></span>
-      </a>
-      <p>Student-focused coaching for NEET, JEE, CET, Boards, and Foundation courses with structured mentoring in Bareilly.</p>
-      <div class="socials" aria-label="Social media links">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="YouTube">YT</a>
+<footer class="bg-brand-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a class="mb-5 flex items-center gap-3" href="{{ '/' | relative_url }}">
+          <img class="h-12 w-12 rounded-2xl" src="https://placehold.co/64x64/ff7a18/ffffff?text=IC" alt="Inspiritation Classes logo">
+          <span class="leading-tight"><strong class="block font-heading text-lg">Inspiritation Classes</strong><small class="text-sm text-gray-300">Bareilly, UP</small></span>
+        </a>
+        <p class="text-sm leading-7 text-gray-300">Student-focused coaching for NEET, JEE, CET, Boards, and Foundation courses with structured mentoring in Bareilly.</p>
+        <div class="mt-5 flex gap-3" aria-label="Social media links">
+          <a class="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-orange" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-orange" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-orange" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="mb-5 font-heading text-lg font-bold">Quick Links</h2>
+        <div class="grid gap-3 text-sm text-gray-300">
+          <a class="transition hover:text-white" href="{{ '/about/' | relative_url }}">About</a>
+          <a class="transition hover:text-white" href="{{ '/announcements/' | relative_url }}">Announcements</a>
+          <a class="transition hover:text-white" href="{{ '/blog/' | relative_url }}">Blog</a>
+          <a class="transition hover:text-white" href="{{ '/gallery/' | relative_url }}">Gallery</a>
+          <a class="transition hover:text-white" href="{{ '/registration/' | relative_url }}">Registration</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="mb-5 font-heading text-lg font-bold">Courses</h2>
+        <div class="grid gap-3 text-sm text-gray-300">
+          <a class="transition hover:text-white" href="{{ '/neet/' | relative_url }}">NEET</a>
+          <a class="transition hover:text-white" href="{{ '/jee-main-advanced/' | relative_url }}">JEE Main & Advanced</a>
+          <a class="transition hover:text-white" href="{{ '/cet/' | relative_url }}">CET</a>
+          <a class="transition hover:text-white" href="{{ '/boards/' | relative_url }}">Boards</a>
+          <a class="transition hover:text-white" href="{{ '/courses/' | relative_url }}#foundation">Foundation</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="mb-5 font-heading text-lg font-bold">Contact</h2>
+        <div class="grid gap-3 text-sm text-gray-300">
+          <p><i class="fa-solid fa-location-dot mr-2 text-brand-orange"></i>Bareilly, Uttar Pradesh</p>
+          <p><i class="fa-solid fa-phone mr-2 text-brand-orange"></i>+91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope mr-2 text-brand-orange"></i>hello@inspiritationclasses.example</p>
+        </div>
+        <a class="mt-5 inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-3 font-semibold text-white transition hover:bg-[#e7650b]" href="{{ '/enrollment/' | relative_url }}">Enroll Now</a>
       </div>
     </div>
-    <div>
-      <h2>Quick Links</h2>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/announcements/' | relative_url }}">Announcements</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/gallery/' | relative_url }}">Gallery</a>
-      <a href="{{ '/registration/' | relative_url }}">Registration</a>
-    </div>
-    <div>
-      <h2>Courses</h2>
-      <a href="{{ '/neet/' | relative_url }}">NEET</a>
-      <a href="{{ '/jee-main-advanced/' | relative_url }}">JEE Main & Advanced</a>
-      <a href="{{ '/cet/' | relative_url }}">CET</a>
-      <a href="{{ '/boards/' | relative_url }}">Boards</a>
-      <a href="{{ '/courses/' | relative_url }}">Foundation</a>
-    </div>
-    <div>
-      <h2>Contact</h2>
-      <p>Bareilly, Uttar Pradesh</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Email: hello@inspiritationclasses.example</p>
-      <a class="btn btn--small btn--primary" href="{{ '/enrollment/' | relative_url }}">Enroll Now</a>
-    </div>
   </div>
-  <div class="footer-bottom">© 2026 Inspiritation Classes, Bareilly UP. All Rights Reserved.</div>
+  <div class="border-t border-white/10 px-4 py-5 text-center text-sm text-gray-300">© 2026 Inspiritation Classes, Bareilly UP. All Rights Reserved.</div>
 </footer>

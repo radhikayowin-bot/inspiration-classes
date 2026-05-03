@@ -15,10 +15,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://placehold.co">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif']
+            },
+            colors: {
+              brand: {
+                orange: '#ff7a18',
+                dark: '#1a1a2e',
+                muted: '#777777',
+                soft: '#fff3e8'
+              }
+            },
+            boxShadow: {
+              soft: '0 14px 34px rgba(26, 26, 46, 0.08)',
+              premium: '0 24px 60px rgba(26, 26, 46, 0.12)'
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+  <body class="bg-gray-50 font-sans text-[#333] antialiased">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-dark focus:px-4 focus:py-3 focus:text-white" href="#main">Skip to content</a>
     {% include header.html %}
     <main id="main">
       {{ content }}

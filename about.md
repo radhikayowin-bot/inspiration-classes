@@ -4,29 +4,5 @@ permalink: /about/
 description: Learn about Inspiritation Classes, Bareilly UP, and its student-first academic approach.
 ---
 
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow">About Us</span>
-    <h1>Focused coaching for ambitious students in Bareilly.</h1>
-    <p class="lead">Inspiritation Classes helps students prepare for NEET, JEE, CET, Boards, and Foundation programs through structured teaching, regular tests, and personal academic attention.</p>
-  </div>
-</section>
-
-<section class="section-pad">
-  <div class="container content-grid">
-    <div class="info-card card-lift">
-      <h2>Our Approach</h2>
-      <p>We keep preparation practical and measurable. Each student receives concept classes, guided practice, test feedback, and doubt support so learning does not remain limited to lectures.</p>
-      <p>Parents and students can expect clear communication, disciplined batches, and a study environment that values consistency.</p>
-    </div>
-    <div class="info-card card-lift">
-      <h2>What We Stand For</h2>
-      <ul class="check-list">
-        <li>Concept clarity before shortcut methods</li>
-        <li>Regular assessment and performance review</li>
-        <li>Mentoring for discipline, confidence, and revision</li>
-        <li>Exam-oriented classroom planning</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<section class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><span class="text-sm font-extrabold uppercase tracking-widest text-brand-orange">About Us</span><h1 class="mt-4 max-w-4xl font-heading text-4xl font-extrabold text-brand-dark md:text-5xl">Focused coaching for ambitious students in Bareilly.</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-brand-muted">Inspiritation Classes helps students prepare for NEET, JEE, CET, Boards, and Foundation programs through structured teaching, regular tests, and personal academic attention.</p></div></section>
+<section class="py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 lg:grid-cols-2"><div class="rounded-2xl bg-white p-6 md:p-8 shadow-md"><i class="fa-solid fa-compass mb-5 text-3xl text-brand-orange"></i><h2 class="font-heading text-2xl font-bold text-brand-dark">Our Approach</h2><p class="mt-4 leading-8 text-brand-muted">We keep preparation practical and measurable. Each student receives concept classes, guided practice, test feedback, and doubt support so learning does not remain limited to lectures.</p><p class="mt-4 leading-8 text-brand-muted">Parents and students can expect clear communication, disciplined batches, and a study environment that values consistency.</p></div><div class="rounded-2xl bg-white p-6 md:p-8 shadow-md"><i class="fa-solid fa-star mb-5 text-3xl text-brand-orange"></i><h2 class="font-heading text-2xl font-bold text-brand-dark">What We Stand For</h2><ul class="mt-5 grid gap-3 text-brand-muted"><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Concept clarity before shortcut methods</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Regular assessment and performance review</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Mentoring for discipline, confidence, and revision</li><li><i class="fa-solid fa-check mr-2 text-brand-orange"></i>Exam-oriented classroom planning</li></ul></div></div></section>

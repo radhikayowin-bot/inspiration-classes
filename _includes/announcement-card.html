@@ -1,6 +1,6 @@
-<article class="announcement-card card-lift">
-  <time datetime="{{ include.announcement.iso_date }}">{{ include.announcement.date }}</time>
-  <h3>{{ include.announcement.title }}</h3>
-  <p>{{ include.announcement.description }}</p>
-  <a href="{{ '/announcements/' | relative_url }}#{{ include.announcement.slug }}">Read More</a>
+<article class="h-full rounded-2xl bg-white p-6 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+  <time class="inline-flex items-center gap-2 text-sm font-bold text-brand-orange" datetime="{{ include.announcement.iso_date }}"><i class="fa-regular fa-calendar"></i>{{ include.announcement.date }}</time>
+  <h3 class="mt-4 font-heading text-xl font-bold text-brand-dark">{{ include.announcement.title }}</h3>
+  <p class="mt-3 text-sm leading-7 text-brand-muted">{{ include.announcement.description }}</p>
+  <a class="mt-5 inline-flex items-center text-sm font-bold text-brand-orange transition hover:text-brand-dark" href="{{ '/announcements/' | relative_url }}#{{ include.announcement.slug }}">Read More <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
 </article>
