@@ -21,7 +21,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: https://placehold.co/1200x630/F9FAFB/1F5B45?text=Inspiration+Classes
+      image: https://placehold.co/1200x630/F5F7FB/173A8A?text=Inspiration+Classes
 
 exclude:
   - README.md
