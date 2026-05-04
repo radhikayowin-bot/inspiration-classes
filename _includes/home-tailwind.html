@@ -14,9 +14,13 @@
           <a class="inline-flex items-center justify-center rounded-2xl border-2 border-white bg-transparent px-7 py-4 font-bold text-white transition hover:bg-white hover:text-primary" href="{{ '/courses/' | relative_url }}">Explore Courses</a>
         </div>
       </div>
-      <div class="relative">
-        <div class="rounded-[2rem] border border-borderSoft bg-white/10 p-5 shadow-glow backdrop-blur-xl">
-          <img class="h-full w-full rounded-[1.5rem] object-cover opacity-95" src="https://placehold.co/720x540/173A8A/FFFFFF?text=Focused+Classroom" alt="Students learning at Inspiration Classes" fetchpriority="high">
+      <div class="relative animate-fade-in-up">
+        <div class="relative group animate-float overflow-hidden rounded-3xl border border-white/20 shadow-2xl backdrop-blur-md transition duration-500">
+          <img src="{{ '/assets/img/classroom.webp' | relative_url }}" alt="Focused Classroom" class="h-[320px] w-full object-cover transform transition duration-700 ease-out group-hover:scale-105 md:h-[400px] lg:h-[460px]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-90"></div>
+          <div class="absolute bottom-6 left-6">
+            <p class="text-lg font-semibold tracking-wide text-white md:text-xl">Focused Classroom</p>
+          </div>
         </div>
         <div class="absolute -bottom-5 left-5 rounded-2xl bg-accent px-5 py-4 text-sm font-extrabold text-textDark shadow-xl"><i class="fa-solid fa-chart-line mr-2 text-primary"></i>Exam-ready learning plans</div>
       </div>
