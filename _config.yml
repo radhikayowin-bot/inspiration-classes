@@ -1,5 +1,5 @@
-title: Inspiritation Classes, Bareilly UP
-email: hello@inspiritationclasses.example
+title: Inspiration Classes, Bareilly UP
+email: hello@inspirationclasses.example
 phone: +91 98765 43210
 address: Bareilly, Uttar Pradesh
 description: Professional coaching institute in Bareilly for NEET, JEE Main, JEE Advanced, CET, Boards, and Foundation preparation.
@@ -21,7 +21,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: https://placehold.co/1200x630/F9FAFB/1F5B45?text=Inspiritation+Classes
+      image: https://placehold.co/1200x630/F9FAFB/1F5B45?text=Inspiration+Classes
 
 exclude:
   - README.md

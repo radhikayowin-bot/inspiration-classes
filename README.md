@@ -1,6 +1,6 @@
-# Inspiritation Classes, Bareilly UP
+# Inspiration Classes, Bareilly UP
 
-Full Jekyll website for Inspiritation Classes, Bareilly UP, founded by Er. Farman Malik. The site is designed for Cloudflare Pages deployment via GitHub.
+Full Jekyll website for Inspiration Classes, Bareilly UP, founded by Er. Farman Malik. The site is designed for Cloudflare Pages deployment via GitHub.
 
 The frontend uses Tailwind CSS CDN, Font Awesome CDN, Google Fonts, Liquid data loops, and static HTML forms ready for later integration.
 

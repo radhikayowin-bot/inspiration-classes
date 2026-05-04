@@ -1,7 +1,7 @@
 ---
 title: Registration
 permalink: /registration/
-description: Register for courses at Inspiritation Classes, Bareilly UP.
+description: Register for courses at Inspiration Classes, Bareilly UP.
 ---
 
 <section class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><span class="text-sm font-extrabold uppercase tracking-widest text-primary">Registration</span><h1 class="mt-4 font-heading text-4xl font-extrabold text-primary md:text-5xl">Register your interest.</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-textGray">Share student details and our admission team will contact you with batch information.</p></div></section>

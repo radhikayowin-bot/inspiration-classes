@@ -1,7 +1,7 @@
 ---
 title: Courses
 permalink: /courses/
-description: Explore NEET, JEE, CET, Boards, and Foundation courses at Inspiritation Classes, Bareilly.
+description: Explore NEET, JEE, CET, Boards, and Foundation courses at Inspiration Classes, Bareilly.
 ---
 
 <section class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><span class="text-sm font-extrabold uppercase tracking-widest text-primary">Courses</span><h1 class="mt-4 max-w-4xl font-heading text-4xl font-extrabold text-primary md:text-5xl">Choose the right preparation track.</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-textGray">Our courses are planned for students who need concept clarity, regular practice, and exam-focused mentoring.</p></div></section>

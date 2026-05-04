@@ -1,7 +1,7 @@
 ---
 title: Announcements
 permalink: /announcements/
-description: Latest admissions, batches, tests, and scholarship announcements from Inspiritation Classes.
+description: Latest admissions, batches, tests, and scholarship announcements from Inspiration Classes.
 ---
 
 <section class="bg-white py-16 md:py-20 lg:py-24"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><span class="text-sm font-extrabold uppercase tracking-widest text-primary">Announcements</span><h1 class="mt-4 max-w-4xl font-heading text-4xl font-extrabold text-primary md:text-5xl">Latest updates for students and parents.</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-textGray">Track new batches, registration dates, tests, and scholarship opportunities.</p></div></section>
