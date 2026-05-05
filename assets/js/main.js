@@ -37,3 +37,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.getElementById('highlightsSlider');
+  const prev = document.getElementById('highlightPrev');
+  const next = document.getElementById('highlightNext');
+
+  if (!slider) return;
+
+  const scrollAmount = 300;
+
+  if (next) {
+    next.addEventListener('click', function () {
+      slider.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener('click', function () {
+      slider.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+  }
+});
