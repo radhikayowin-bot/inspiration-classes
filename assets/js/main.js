@@ -1,20 +1,39 @@
-const navToggle = document.querySelector('#nav-toggle');
-const mobileNav = document.querySelector('#mobile-nav');
+document.addEventListener('DOMContentLoaded', function () {
+  const navMenu = document.getElementById('navMenu');
+  const desktopToggle = document.getElementById('menuToggleDesktop');
+  const mobileToggle = document.getElementById('menuToggleMobile');
+  const closeBtn = document.getElementById('menuClose');
 
-if (navToggle && mobileNav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.toggle('hidden') === false;
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
-    navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark text-lg"></i>' : '<i class="fa-solid fa-bars text-lg"></i>';
-  });
+  if (!navMenu) return;
 
-  mobileNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.add('hidden');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Open navigation');
-      navToggle.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+  function setExpanded(isOpen) {
+    [desktopToggle, mobileToggle].forEach((button) => {
+      if (button) button.setAttribute('aria-expanded', String(isOpen));
     });
+  }
+
+  function closeMenu() {
+    navMenu.classList.add('hidden');
+    setExpanded(false);
+  }
+
+  function toggleMenu() {
+    const isOpen = navMenu.classList.toggle('hidden') === false;
+    setExpanded(isOpen);
+  }
+
+  if (desktopToggle) desktopToggle.addEventListener('click', toggleMenu);
+  if (mobileToggle) mobileToggle.addEventListener('click', toggleMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  navMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
   });
-}
+
+  document.addEventListener('click', function (event) {
+    const header = document.querySelector('header');
+    if (header && !header.contains(event.target)) {
+      closeMenu();
+    }
+  });
+});
