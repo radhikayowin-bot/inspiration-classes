@@ -47,38 +47,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (icon) icon.className = 'fa-solid fa-volume-xmark';
   }
 
-  function pauseAllExcept(activeVideo = null) {
-    videos.forEach((video) => {
-      if (video !== activeVideo) {
-        video.pause();
-        video.muted = true;
-        video.classList.add('opacity-0');
-        resetIcon(video);
-      }
-    });
-  }
-
-  function playCard(card) {
-    const video = card.querySelector('.highlight-video');
-    if (!video) return;
-
-    pauseAllExcept(video);
-    video.muted = true;
-    video.classList.remove('opacity-0');
-
-    video.play().catch(() => {
-      video.classList.add('opacity-0');
-    });
-  }
-
-  function pauseCard(card) {
-    const video = card.querySelector('.highlight-video');
-    if (!video) return;
-
+  function pauseVideo(video) {
     video.pause();
     video.muted = true;
-    video.classList.add('opacity-0');
     resetIcon(video);
+  }
+
+  function pauseAllExcept(activeVideo) {
+    videos.forEach((video) => {
+      if (video !== activeVideo) pauseVideo(video);
+    });
+  }
+
+  function playVideo(video) {
+    if (!video) return;
+    pauseAllExcept(video);
+    video.muted = true;
+    video.play().catch(() => {});
   }
 
   cards.forEach((card) => {
@@ -91,29 +76,29 @@ document.addEventListener('DOMContentLoaded', function () {
     video.muted = true;
 
     card.addEventListener('mouseenter', () => {
-      playCard(card);
+      playVideo(video);
     });
 
-    card.addEventListener('mouseleave', () => {
-      pauseCard(card);
+    card.addEventListener('click', () => {
+      playVideo(video);
     });
 
     card.addEventListener('touchstart', () => {
-      playCard(card);
+      playVideo(video);
     }, { passive: true });
 
     if (soundBtn) {
       soundBtn.addEventListener('click', function (e) {
         e.stopPropagation();
 
-        const willUnmute = video.muted;
+        const shouldUnmute = video.muted;
 
         videos.forEach((v) => {
           v.muted = true;
           resetIcon(v);
         });
 
-        video.muted = !willUnmute;
+        video.muted = !shouldUnmute;
 
         if (soundIcon) {
           soundIcon.className = video.muted
@@ -128,28 +113,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const observer = new IntersectionObserver(
     function (entries) {
-      let bestEntry = null;
+      let mostVisibleCard = null;
+      let highestRatio = 0;
 
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
-            bestEntry = entry;
-          }
+        if (entry.isIntersecting && entry.intersectionRatio > highestRatio) {
+          highestRatio = entry.intersectionRatio;
+          mostVisibleCard = entry.target;
         }
       });
 
-      if (bestEntry && bestEntry.intersectionRatio >= 0.65) {
-        playCard(bestEntry.target);
+      if (mostVisibleCard && highestRatio >= 0.6) {
+        const video = mostVisibleCard.querySelector('.highlight-video');
+        playVideo(video);
       }
 
       entries.forEach((entry) => {
-        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) {
-          pauseCard(entry.target);
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.25) {
+          const video = entry.target.querySelector('.highlight-video');
+          if (video) pauseVideo(video);
         }
       });
     },
     {
-      threshold: [0, 0.35, 0.65, 1]
+      threshold: [0, 0.25, 0.6, 1]
     }
   );
 
