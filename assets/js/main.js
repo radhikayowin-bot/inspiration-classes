@@ -39,82 +39,96 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  const highlightSection = document.querySelector('#highlightsSlider')?.closest('section');
   const cards = document.querySelectorAll('.highlight-video-card');
   const videos = document.querySelectorAll('.highlight-video');
 
-  function resetIcon(video) {
+  let soundEnabled = false;
+
+  function setIcon(video) {
     const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
-    if (icon) icon.className = 'fa-solid fa-volume-xmark';
+    if (!icon) return;
+
+    icon.className = video.muted
+      ? 'fa-solid fa-volume-xmark'
+      : 'fa-solid fa-volume-high';
   }
 
-  function pauseVideo(video) {
-    video.pause();
-    video.muted = true;
-    resetIcon(video);
+  function updateAllIcons() {
+    videos.forEach(setIcon);
   }
 
-  function pauseAllExcept(activeVideo) {
+  function pauseAllExcept(activeVideo = null) {
     videos.forEach((video) => {
       if (video !== activeVideo) {
-        pauseVideo(video);
+        video.pause();
+        video.muted = true;
+        setIcon(video);
       }
     });
   }
 
-  function playVideo(video, keepSound = false) {
+  function playVideo(video) {
     if (!video) return;
 
     pauseAllExcept(video);
 
-    if (!keepSound) {
-      video.muted = true;
-      resetIcon(video);
-    }
+    video.muted = !soundEnabled;
+    setIcon(video);
 
     video.play().catch(() => {});
+  }
+
+  function resetHighlightSound() {
+    soundEnabled = false;
+
+    videos.forEach((video) => {
+      video.pause();
+      video.muted = true;
+      setIcon(video);
+    });
   }
 
   cards.forEach((card) => {
     const video = card.querySelector('.highlight-video');
     const soundBtn = card.querySelector('.sound-toggle');
-    const soundIcon = soundBtn?.querySelector('i');
 
     if (!video) return;
 
     video.muted = true;
+    setIcon(video);
 
     card.addEventListener('mouseenter', () => {
-      playVideo(video, !video.muted);
+      playVideo(video);
     });
 
     card.addEventListener('click', () => {
-      playVideo(video, !video.muted);
+      playVideo(video);
     });
 
     card.addEventListener('touchstart', () => {
-      playVideo(video, !video.muted);
+      playVideo(video);
     }, { passive: true });
 
     if (soundBtn) {
       soundBtn.addEventListener('click', function (e) {
         e.stopPropagation();
 
-        pauseAllExcept(video);
+        soundEnabled = !soundEnabled;
 
-        video.muted = !video.muted;
+        videos.forEach((v) => {
+          v.muted = true;
+          setIcon(v);
+        });
 
-        if (soundIcon) {
-          soundIcon.className = video.muted
-            ? 'fa-solid fa-volume-xmark'
-            : 'fa-solid fa-volume-high';
-        }
-
+        video.muted = !soundEnabled;
+        setIcon(video);
         video.play().catch(() => {});
       });
     }
   });
 
-  const observer = new IntersectionObserver(
+  const cardObserver = new IntersectionObserver(
     function (entries) {
       let mostVisibleCard = null;
       let highestRatio = 0;
@@ -128,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (mostVisibleCard && highestRatio >= 0.6) {
         const video = mostVisibleCard.querySelector('.highlight-video');
-        playVideo(video, !video.muted);
+        playVideo(video);
       }
 
       entries.forEach((entry) => {
-        if (!entry.isIntersecting || entry.intersectionRatio < 0.2) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.25) {
           const video = entry.target.querySelector('.highlight-video');
           if (video) {
             video.pause();
@@ -141,11 +155,36 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     },
     {
-      threshold: [0, 0.2, 0.6, 1]
+      threshold: [0, 0.25, 0.6, 1]
     }
   );
 
-  cards.forEach((card) => observer.observe(card));
+  cards.forEach((card) => cardObserver.observe(card));
+
+  if (highlightSection) {
+    const sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.15) {
+            resetHighlightSound();
+          }
+        });
+      },
+      {
+        threshold: [0, 0.15, 0.5]
+      }
+    );
+
+    sectionObserver.observe(highlightSection);
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      resetHighlightSound();
+    }
+  });
+
+  updateAllIcons();
 });
 
 document.addEventListener('DOMContentLoaded', function () {
