@@ -42,15 +42,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('.highlight-video');
   const cards = document.querySelectorAll('.highlight-video-card');
 
-  function pauseAll(exceptVideo = null) {
+  function resetSoundIcon(video) {
+    const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
+    if (icon) icon.className = 'fa-solid fa-volume-xmark';
+  }
+
+  function stopVideo(video) {
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+    resetSoundIcon(video);
+    video.removeAttribute('src');
+    video.load();
+  }
+
+  function pauseAllExcept(activeVideo) {
     videos.forEach((video) => {
-      if (video !== exceptVideo) {
+      if (video !== activeVideo) {
         video.pause();
         video.currentTime = 0;
         video.muted = true;
-
-        const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
-        if (icon) icon.className = 'fa-solid fa-volume-xmark';
+        resetSoundIcon(video);
       }
     });
   }
@@ -58,21 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function playVideo(video) {
     if (!video) return;
 
-    pauseAll(video);
+    pauseAllExcept(video);
     video.muted = true;
 
     video.play().catch(() => {});
-  }
-
-  function stopVideo(video) {
-    if (!video) return;
-
-    video.pause();
-    video.currentTime = 0;
-    video.muted = true;
-
-    const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
-    if (icon) icon.className = 'fa-solid fa-volume-xmark';
   }
 
   cards.forEach((card) => {
@@ -89,7 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     card.addEventListener('mouseleave', () => {
-      stopVideo(video);
+      video.pause();
+      video.currentTime = 0;
+      video.muted = true;
+      resetSoundIcon(video);
     });
 
     card.addEventListener('touchstart', () => {
@@ -104,8 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         videos.forEach((v) => {
           v.muted = true;
-          const icon = v.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
-          if (icon) icon.className = 'fa-solid fa-volume-xmark';
+          resetSoundIcon(v);
         });
 
         video.muted = !shouldUnmute;
