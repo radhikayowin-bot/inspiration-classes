@@ -39,45 +39,40 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.getElementById('highlightsSlider');
   const videos = document.querySelectorAll('.highlight-video');
   const cards = document.querySelectorAll('.highlight-video-card');
-  const prev = document.getElementById('highlightPrev');
-  const next = document.getElementById('highlightNext');
 
-  if (prev && slider) {
-    prev.addEventListener('click', () => {
-      slider.scrollBy({ left: -320, behavior: 'smooth' });
-    });
-  }
-
-  if (next && slider) {
-    next.addEventListener('click', () => {
-      slider.scrollBy({ left: 320, behavior: 'smooth' });
-    });
-  }
-
-  function pauseAllExcept(activeVideo) {
+  function pauseAll(exceptVideo = null) {
     videos.forEach((video) => {
-      if (video !== activeVideo) {
+      if (video !== exceptVideo) {
         video.pause();
+        video.currentTime = 0;
         video.muted = true;
+
         const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
         if (icon) icon.className = 'fa-solid fa-volume-xmark';
       }
     });
   }
 
-  function safePlay(video) {
+  function playVideo(video) {
     if (!video) return;
-    pauseAllExcept(video);
+
+    pauseAll(video);
     video.muted = true;
-    video.play().catch(() => {
-      video.load();
-      setTimeout(() => {
-        video.play().catch(() => {});
-      }, 300);
-    });
+
+    video.play().catch(() => {});
+  }
+
+  function stopVideo(video) {
+    if (!video) return;
+
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+
+    const icon = video.closest('.highlight-video-card')?.querySelector('.sound-toggle i');
+    if (icon) icon.className = 'fa-solid fa-volume-xmark';
   }
 
   cards.forEach((card) => {
@@ -88,25 +83,24 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!video) return;
 
     video.muted = true;
-    video.load();
 
     card.addEventListener('mouseenter', () => {
-      safePlay(video);
+      playVideo(video);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      stopVideo(video);
     });
 
     card.addEventListener('touchstart', () => {
-      safePlay(video);
+      playVideo(video);
     }, { passive: true });
-
-    card.addEventListener('click', () => {
-      safePlay(video);
-    });
 
     if (soundBtn) {
       soundBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
-        const willUnmute = video.muted;
+        const shouldUnmute = video.muted;
 
         videos.forEach((v) => {
           v.muted = true;
@@ -114,44 +108,38 @@ document.addEventListener('DOMContentLoaded', function () {
           if (icon) icon.className = 'fa-solid fa-volume-xmark';
         });
 
-        video.muted = !willUnmute;
+        video.muted = !shouldUnmute;
 
-        if (!video.muted) {
+        if (!video.paused) {
           video.play().catch(() => {});
-          if (soundIcon) soundIcon.className = 'fa-solid fa-volume-high';
-        } else {
-          if (soundIcon) soundIcon.className = 'fa-solid fa-volume-xmark';
+        }
+
+        if (soundIcon) {
+          soundIcon.className = video.muted
+            ? 'fa-solid fa-volume-xmark'
+            : 'fa-solid fa-volume-high';
         }
       });
     }
   });
+});
 
-  const observer = new IntersectionObserver((entries) => {
-    let mostVisible = null;
-    let maxRatio = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.getElementById('highlightsSlider');
+  const prev = document.getElementById('highlightPrev');
+  const next = document.getElementById('highlightNext');
 
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-        maxRatio = entry.intersectionRatio;
-        mostVisible = entry.target;
-      }
+  if (!slider) return;
+
+  if (prev) {
+    prev.addEventListener('click', () => {
+      slider.scrollBy({ left: -320, behavior: 'smooth' });
     });
+  }
 
-    if (mostVisible && maxRatio >= 0.55) {
-      const video = mostVisible.querySelector('.highlight-video');
-      safePlay(video);
-    }
-
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting || entry.intersectionRatio < 0.25) {
-        const video = entry.target.querySelector('.highlight-video');
-        if (video) video.pause();
-      }
+  if (next) {
+    next.addEventListener('click', () => {
+      slider.scrollBy({ left: 320, behavior: 'smooth' });
     });
-  }, {
-    root: slider || null,
-    threshold: [0, 0.25, 0.55, 0.75, 1]
-  });
-
-  cards.forEach((card) => observer.observe(card));
+  }
 });
