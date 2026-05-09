@@ -162,6 +162,26 @@
           max-height: 340px;
         }
       }
+
+      .faculty-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .faculty-image-wrapper {
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        overflow: hidden;
+      }
+
+      .faculty-image {
+        transition: transform 0.7s ease-in-out;
+      }
+
+      .faculty-card:hover .faculty-image {
+        transform: scale(1.05);
+      }
     </style>
   </head>
   <body class="bg-bgLight font-sans text-textDark antialiased">
