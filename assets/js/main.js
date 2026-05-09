@@ -1,53 +1,87 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const navMenu = document.getElementById('navMenu');
+  const navMenuDesktop = document.getElementById('navMenuDesktop');
+  const navMenuMobile = document.getElementById('navMenuMobile');
   const desktopToggle = document.getElementById('menuToggleDesktop');
   const mobileToggle = document.getElementById('menuToggleMobile');
-  const closeBtn = document.getElementById('menuClose');
+  const closeDesktop = document.getElementById('menuCloseDesktop');
+  const closeMobile = document.getElementById('menuCloseMobile');
 
-  if (!navMenu) return;
+  function openDesktopMenu() {
+    if (navMenuDesktop) navMenuDesktop.classList.remove('hidden');
+    document.documentElement.classList.add('menu-open');
+    document.body.classList.add('menu-open');
+    if (desktopToggle) desktopToggle.setAttribute('aria-expanded', 'true');
+  }
 
-  function setExpanded(isOpen) {
-    [desktopToggle, mobileToggle].forEach((button) => {
-      if (button) button.setAttribute('aria-expanded', String(isOpen));
+  function closeDesktopMenu() {
+    if (navMenuDesktop) navMenuDesktop.classList.add('hidden');
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
+    if (desktopToggle) desktopToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function openMobileMenu() {
+    if (navMenuMobile) navMenuMobile.classList.remove('hidden');
+    document.documentElement.classList.add('menu-open');
+    document.body.classList.add('menu-open');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMobileMenu() {
+    if (navMenuMobile) navMenuMobile.classList.add('hidden');
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (desktopToggle) {
+    desktopToggle.addEventListener('click', function () {
+      if (navMenuDesktop && navMenuDesktop.classList.contains('hidden')) {
+        openDesktopMenu();
+      } else {
+        closeDesktopMenu();
+      }
     });
   }
 
-  function openMenu() {
-    navMenu.classList.remove('hidden');
-    document.documentElement.classList.add('menu-open');
-    document.body.classList.add('menu-open');
-    setExpanded(true);
+  if (closeDesktop) closeDesktop.addEventListener('click', closeDesktopMenu);
+
+  if (navMenuDesktop) {
+    navMenuDesktop.querySelectorAll('.menu-link').forEach(function (link) {
+      link.addEventListener('click', closeDesktopMenu);
+    });
   }
-
-  function closeMenu() {
-    navMenu.classList.add('hidden');
-    document.documentElement.classList.remove('menu-open');
-    document.body.classList.remove('menu-open');
-    setExpanded(false);
-  }
-
-  function toggleMenu() {
-    if (navMenu.classList.contains('hidden')) {
-      openMenu();
-    } else {
-      closeMenu();
-    }
-  }
-
-  if (desktopToggle) desktopToggle.addEventListener('click', toggleMenu);
-  if (mobileToggle) mobileToggle.addEventListener('click', toggleMenu);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-  navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
 
   document.addEventListener('click', function (event) {
     const header = document.querySelector('header');
-    if (header && !header.contains(event.target) && !navMenu.classList.contains('hidden')) {
-      closeMenu();
+    if (header && !header.contains(event.target)) {
+      closeDesktopMenu();
     }
   });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeDesktopMenu();
+    }
+  });
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function () {
+      if (navMenuMobile && navMenuMobile.classList.contains('hidden')) {
+        openMobileMenu();
+      } else {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  if (closeMobile) closeMobile.addEventListener('click', closeMobileMenu);
+
+  if (navMenuMobile) {
+    navMenuMobile.querySelectorAll('.mobile-menu-link').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
