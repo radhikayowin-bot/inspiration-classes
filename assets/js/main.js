@@ -55,14 +55,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function pauseAllExcept(activeVideo) {
     videos.forEach((video) => {
-      if (video !== activeVideo) pauseVideo(video);
+      if (video !== activeVideo) {
+        pauseVideo(video);
+      }
     });
   }
 
-  function playVideo(video) {
+  function playVideo(video, keepSound = false) {
     if (!video) return;
+
     pauseAllExcept(video);
-    video.muted = true;
+
+    if (!keepSound) {
+      video.muted = true;
+      resetIcon(video);
+    }
+
     video.play().catch(() => {});
   }
 
@@ -76,29 +84,24 @@ document.addEventListener('DOMContentLoaded', function () {
     video.muted = true;
 
     card.addEventListener('mouseenter', () => {
-      playVideo(video);
+      playVideo(video, !video.muted);
     });
 
     card.addEventListener('click', () => {
-      playVideo(video);
+      playVideo(video, !video.muted);
     });
 
     card.addEventListener('touchstart', () => {
-      playVideo(video);
+      playVideo(video, !video.muted);
     }, { passive: true });
 
     if (soundBtn) {
       soundBtn.addEventListener('click', function (e) {
         e.stopPropagation();
 
-        const shouldUnmute = video.muted;
+        pauseAllExcept(video);
 
-        videos.forEach((v) => {
-          v.muted = true;
-          resetIcon(v);
-        });
-
-        video.muted = !shouldUnmute;
+        video.muted = !video.muted;
 
         if (soundIcon) {
           soundIcon.className = video.muted
@@ -125,18 +128,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (mostVisibleCard && highestRatio >= 0.6) {
         const video = mostVisibleCard.querySelector('.highlight-video');
-        playVideo(video);
+        playVideo(video, !video.muted);
       }
 
       entries.forEach((entry) => {
-        if (!entry.isIntersecting || entry.intersectionRatio < 0.25) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.2) {
           const video = entry.target.querySelector('.highlight-video');
-          if (video) pauseVideo(video);
+          if (video) {
+            video.pause();
+          }
         }
       });
     },
     {
-      threshold: [0, 0.25, 0.6, 1]
+      threshold: [0, 0.2, 0.6, 1]
     }
   );
 
