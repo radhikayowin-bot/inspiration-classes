@@ -1,5 +1,5 @@
-<header class="sticky top-0 z-50 bg-white text-textDark shadow-sm relative">
-  <div class="max-w-7xl mx-auto px-4 py-2 sm:px-6 md:py-3 lg:px-8">
+<header class="sticky top-0 left-0 right-0 z-50 w-full bg-white text-textDark shadow-sm relative">
+  <div class="mx-auto w-full max-w-7xl px-4 py-2 sm:px-6 md:py-3 lg:px-8">
     <div class="flex h-auto min-h-[60px] items-center justify-between gap-4">
       <a class="flex items-center gap-3" href="{{ '/' | relative_url }}" aria-label="Inspiration Classes home">
         <img class="h-10 w-10 rounded-full bg-white object-contain p-0.5 shadow-md ring-2 ring-slate-100 md:h-12 md:w-12" src="{{ '/assets/img/logo.webp' | relative_url }}" alt="Inspiration Classes logo">
@@ -24,17 +24,17 @@
     </div>
   </div>
 
-  <div id="navMenu" class="hidden absolute top-full left-0 z-50 w-full border-t border-gray-100 bg-white shadow-2xl">
-    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-      <div class="mb-5 flex items-center justify-between">
+  <div id="navMenu" class="hidden fixed inset-0 z-[999] bg-white lg:hidden">
+    <div class="flex flex-col min-h-screen max-h-screen overflow-y-auto">
+      <div class="flex items-center justify-between p-4 border-b border-gray-100">
         <h3 class="text-xl font-extrabold text-primary">Menu</h3>
         <button id="menuClose" class="flex h-10 w-10 items-center justify-center rounded-full bg-bgLight text-primary transition hover:bg-primary hover:text-white" type="button" aria-label="Close menu">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <nav class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Primary navigation">
-<a href="{{ '/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">Home</a>
+      <nav class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">Home</a>
         <a href="{{ '/about/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">About</a>
         <a href="{{ '/courses/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">Courses</a>
         <a href="{{ '/announcements/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">Announcements</a>
@@ -44,10 +44,12 @@
         <a href="{{ '/contact/' | relative_url }}" class="mobile-menu-link rounded-2xl bg-bgLight p-4 font-semibold text-textDark transition hover:bg-primary hover:text-white">Contact</a>
       </nav>
 
-      <div class="mt-6 grid grid-cols-1 gap-3 lg:hidden">
+      <div class="mt-6 grid grid-cols-1 gap-3 p-4">
         <a href="{{ '/registration/' | relative_url }}" class="mobile-menu-link flex w-full items-center justify-center rounded-2xl border-2 border-[#173A8A] px-5 py-4 text-center font-bold text-[#173A8A] transition hover:bg-[#173A8A] hover:text-white">Register</a>
         <a href="{{ '/enrollment/' | relative_url }}" class="mobile-menu-link flex w-full items-center justify-center rounded-2xl bg-[#FFC400] px-5 py-4 text-center font-bold text-[#0F172A] shadow-md transition hover:bg-[#FFD84D]">Enroll Now</a>
       </div>
+
+      <div class="mt-auto p-4 pb-[env(safe-area-inset-bottom)]"></div>
     </div>
   </div>
 </header>

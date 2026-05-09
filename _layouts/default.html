@@ -65,6 +65,11 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -105,6 +110,18 @@
       .sound-toggle i {
         font-size: 14px;
         line-height: 1;
+      }
+
+      html.menu-open,
+      body.menu-open {
+        overflow: hidden;
+        height: 100%;
+        touch-action: none;
+      }
+
+      #navMenu {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
       }
     </style>
   </head>

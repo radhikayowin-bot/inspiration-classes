@@ -12,14 +12,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function openMenu() {
+    navMenu.classList.remove('hidden');
+    document.documentElement.classList.add('menu-open');
+    document.body.classList.add('menu-open');
+    setExpanded(true);
+  }
+
   function closeMenu() {
     navMenu.classList.add('hidden');
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
     setExpanded(false);
   }
 
   function toggleMenu() {
-    const isOpen = navMenu.classList.toggle('hidden') === false;
-    setExpanded(isOpen);
+    if (navMenu.classList.contains('hidden')) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
   }
 
   if (desktopToggle) desktopToggle.addEventListener('click', toggleMenu);
@@ -32,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('click', function (event) {
     const header = document.querySelector('header');
-    if (header && !header.contains(event.target)) {
+    if (header && !header.contains(event.target) && !navMenu.classList.contains('hidden')) {
       closeMenu();
     }
   });
