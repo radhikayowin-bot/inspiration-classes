@@ -81,9 +81,9 @@ description: Managing Director profile of Ahmad Fareed, Managing Director of Ins
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="font-heading text-3xl font-bold text-primary md:text-4xl">Connect with Ahmad Fareed</h2>
     <p class="mt-4 max-w-2xl mx-auto text-textGray">Follow Inspiration Classes for regular updates, student achievements, and institutional milestones.</p>
-    <a href="https://www.instagram.com/inspirationclassesofficial/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-yellow-400 px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+    <a href="https://www.instagram.com/ahmadfareed3308" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-yellow-400 px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
       <i class="fa-brands fa-instagram text-xl"></i>
-      Connect on Instagram
+      @ahmadfareed3308
     </a>
   </div>
 </section>
