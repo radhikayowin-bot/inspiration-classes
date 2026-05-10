@@ -17,7 +17,7 @@ description: Managing Director profile of Ahmad Fareed, Managing Director of Ins
 <section class="py-16 md:py-20 lg:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid items-center gap-10 lg:grid-cols-[420px_1fr]">
     <div class="relative group rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center">
-      <img src="{{ '/assets/img/md.webp' | relative_url }}" alt="Ahmad Fareed" class="w-full h-auto max-h-[620px] object-contain object-top transition duration-700 ease-in-out group-hover:scale-105" loading="lazy">
+      <img src="{{ '/assets/img/md.webp' | relative_url }}" alt="Ahmad Fareed" class="w-full h-auto max-h-[620px] object-contain object-top transition duration-700 ease-in-out group-hover:scale-105" loading="lazy" decoding="async">
     </div>
     <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-soft md:p-8">
       <h2 class="font-heading text-2xl font-bold text-primary">Biography</h2>

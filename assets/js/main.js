@@ -114,9 +114,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function loadVideo(video) {
+    if (!video || video.dataset.loaded === 'true') return;
+
+    const source = video.querySelector('source');
+    if (source && source.dataset.src) {
+      source.src = source.dataset.src;
+      video.load();
+      video.dataset.loaded = 'true';
+    }
+  }
+
   function playVideo(video) {
     if (!video) return;
 
+    loadVideo(video);
     pauseAllExcept(video);
 
     video.muted = !soundEnabled;
@@ -140,6 +152,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const soundBtn = card.querySelector('.sound-toggle');
 
     if (!video) return;
+
+    const source = video.querySelector('source');
+    if (source && source.src && !source.dataset.src) {
+      source.dataset.src = source.src;
+      source.removeAttribute('src');
+      video.load();
+      video.dataset.loaded = 'false';
+    }
 
     video.muted = true;
     setIcon(video);
@@ -169,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         video.muted = !soundEnabled;
         setIcon(video);
-        video.play().catch(() => {});
+        playVideo(video);
       });
     }
   });
